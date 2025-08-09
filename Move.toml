@@ -1,0 +1,15 @@
+[package]
+name = "BasicNFTContract"
+version = "1.0.0"
+authors = []
+
+[addresses]
+sravani_addr="f9eccfcf86c427bd1b00875e12b99c21058d48b1a8579da3112beae6cef26bc8"
+[dev-addresses]
+
+[dependencies.AptosFramework]
+git = "https://github.com/aptos-labs/aptos-framework.git"
+rev = "mainnet"
+subdir = "aptos-framework"
+
+[dev-dependencies]
