@@ -1,46 +1,221 @@
-# Getting Started with Create React App
+BasicNFT DApp
+A full-stack NFT minting and management application built on the Aptos blockchain using Move smart contracts and React frontend.
+Show Image
+🌟 Features
+Smart Contract (Move)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+✅ NFT Minting - Create unique NFTs with metadata
+✅ NFT Collection Management - Organize NFTs in collections
+✅ NFT Transfer - Transfer ownership between addresses
+✅ Metadata Support - Store name, description, and image URL
+✅ Owner Verification - Secure ownership validation
 
-## Available Scripts
+Frontend (React + Aptos SDK)
 
-In the project directory, you can run:
+✅ Wallet Integration - Connect/disconnect Petra Wallet
+✅ Collection Initialization - Set up NFT collections for new users
+✅ NFT Minting Interface - User-friendly minting form
+✅ NFT Gallery - View all owned NFTs in a beautiful grid
+✅ NFT Transfer - Send NFTs to other addresses
+✅ Real-time Updates - Live transaction status and confirmations
+✅ Responsive Design - Works on desktop and mobile
+✅ Error Handling - User-friendly error messages
 
-### `npm start`
+🏗️ Architecture
+BasicNFTContract/
+├── nft-frontend/          # React frontend application
+│   ├── src/
+│   │   ├── components/    # React components
+│   │   ├── context/       # Web3 context for wallet management
+│   │   ├── config/        # Contract configuration
+│   │   └── hooks/         # Custom React hooks
+├── sources/               # Move smart contracts
+│   └── BasicNFTContract.move
+└── README.md
+🚀 Quick Start
+Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Node.js (v14 or higher)
+Petra Wallet browser extension
+Git
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Installation
 
-### `npm test`
+Clone the repository
+bashgit clone https://github.com/YOUR_USERNAME/BasicNFTContract-Frontend.git
+cd BasicNFTContract-Frontend/nft-frontend
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Install dependencies
+bashnpm install
 
-### `npm run build`
+Start the development server
+bashnpm start
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Open your browser
+Navigate to http://localhost:3000
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+🔧 Configuration
+Smart Contract
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Contract Address: 0x0847a4b907b03023c797a7e24c4401c3bdb2c865a88762b7eefcf4f1cb2564c5
+Module Name: BasicNFT
+Network: Aptos Mainnet (configurable)
 
-### `npm run eject`
+Update the contract configuration in src/config/contract.js:
+javascriptexport const CONTRACT_ADDRESS = "YOUR_CONTRACT_ADDRESS";
+export const MODULE_NAME = "BasicNFT";
+export const CURRENT_NETWORK = "mainnet"; // or "testnet", "devnet"
+📱 How to Use
+1. Connect Wallet
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Install Petra Wallet browser extension
+Click "Connect Wallet" in the DApp
+Approve the connection
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Initialize Collection (First Time Users)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Click "Initialize Collection"
+Approve the transaction in Petra Wallet
+Wait for confirmation
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+3. Mint NFT
 
-## Learn More
+Fill in NFT details (name, description, image URL)
+Click "Mint NFT"
+Approve transaction and wait for confirmation
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. View Your NFTs
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Your minted NFTs will appear in the gallery
+Click "Refresh NFTs" to reload the collection
+
+5. Transfer NFT
+
+Select an NFT from your collection
+Enter recipient's address
+Click "Transfer NFT" and approve transaction
+
+🛠️ Technology Stack
+Frontend
+
+React 18 - UI framework
+Aptos TypeScript SDK - Blockchain interaction
+CSS3 - Styling with gradients and animations
+Axios - HTTP client (if needed for metadata)
+
+Smart Contract
+
+Move Language - Aptos smart contract development
+Aptos Framework - Built-in modules and functions
+
+Development Tools
+
+Create React App - Development environment
+VS Code - IDE with Move language support
+Git - Version control
+
+📁 Project Structure
+nft-frontend/
+├── public/
+│   ├── index.html
+│   └── manifest.json
+├── src/
+│   ├── components/
+│   │   ├── WalletConnection.js    # Wallet connect/disconnect
+│   │   └── NftInterface.js        # Main NFT functionality
+│   ├── context/
+│   │   └── Web3Context.js         # Web3 state management
+│   ├── config/
+│   │   └── contract.js            # Contract configuration
+│   ├── App.js                     # Main App component
+│   ├── App.css                    # Application styles
+│   └── index.js                   # React entry point
+├── package.json
+└── README.md
+🔐 Smart Contract Functions
+Core Functions
+
+initialize_collection(account: &signer) - Initialize NFT collection
+mint_nft(account: &signer, name: String, description: String, image_url: String) - Mint new NFT
+transfer_nft(from: &signer, to: address, nft_id: u64) - Transfer NFT ownership
+
+Data Structures
+
+NFT - Individual NFT with metadata
+NFTCollection - Collection of NFTs for an account
+
+🚀 Deployment
+Frontend Deployment
+Deploy to Vercel, Netlify, or similar platforms:
+bashnpm run build
+# Upload build/ folder to your hosting platform
+Smart Contract Deployment
+The contract is already deployed at:
+0x0847a4b907b03023c797a7e24c4401c3bdb2c865a88762b7eefcf4f1cb2564c5
+🧪 Testing
+Manual Testing
+
+Connect wallet ✅
+Initialize collection ✅
+Mint NFT with valid metadata ✅
+View minted NFTs ✅
+Transfer NFT to another address ✅
+
+Network Testing
+
+Test on Aptos Testnet before mainnet
+Use testnet faucet for test APT tokens
+
+🐛 Troubleshooting
+Common Issues
+
+"Petra Wallet not found"
+
+Install Petra Wallet browser extension
+Refresh the page
+
+
+"Collection not initialized"
+
+Click "Initialize Collection" first
+Approve the transaction
+
+
+Transaction fails
+
+Check wallet balance (need APT for gas)
+Ensure correct network selected
+
+
+NFTs not loading
+
+Click "Refresh NFTs" button
+Check browser console for errors
+
+
+
+🤝 Contributing
+
+Fork the repository
+Create a feature branch (git checkout -b feature/amazing-feature)
+Commit changes (git commit -m 'Add amazing feature')
+Push to branch (git push origin feature/amazing-feature)
+Open a Pull Request
+
+📄 License
+This project is licensed under the MIT License - see the LICENSE file for details.
+🙏 Acknowledgments
+
+Aptos Labs for the blockchain infrastructure
+Move Language documentation
+Petra Wallet for wallet integration
+React community for excellent documentation
+
+📞 Support
+If you have questions or need help:
+
+Open an issue on GitHub
+Check the Aptos documentation
+Join the Aptos Discord community
+
+![alt text](image.png)
